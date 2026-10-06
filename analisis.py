@@ -35,3 +35,9 @@ else:
     maximo = conteo.max()
     print("Planta(s) con más alertas:")
     print(conteo[conteo == maximo].to_string())
+
+    # 6. Exportar alertas conservando las columnas originales
+carpeta_resultados = BASE / "resultados"
+carpeta_resultados.mkdir(exist_ok=True)
+alertas.to_csv(carpeta_resultados / "alertas.csv", index=False)
+print("\nAlertas exportadas a resultados/alertas.csv")
